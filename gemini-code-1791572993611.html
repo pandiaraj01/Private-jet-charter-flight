@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Aviation | Global Private Jet Charter</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#07090E] text-gray-100 font-sans antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#07090E]/85 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-jet-fighter text-[#D4AF37] text-2xl"></i>
+                <span class="text-xl font-bold tracking-widest text-white uppercase">Apex <span class="text-[#D4AF37]">Aviation</span></span>
+            </div>
+            <button onclick="document.getElementById('search').scrollIntoView({behavior: 'smooth'})" class="bg-[#D4AF37] hover:bg-[#e6c667] text-black font-semibold px-6 py-2.5 rounded-full text-sm uppercase tracking-wider transition">
+                Book Flight
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section & Search -->
+    <section id="search" class="pt-36 pb-20 px-6 max-w-7xl mx-auto text-center">
+        <span class="text-[#D4AF37] uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block">India & Global Destinations</span>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">Private Jet Charters Worldwide</h1>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-10 text-sm">Domestic travel across India (DEL, BOM, BLR) or international transcontinental routes (JFK, LHR, DXB).</p>
+        
+        <!-- Search Box -->
+        <div class="bg-[#141A29] border border-white/10 p-6 md:p-8 rounded-2xl shadow-2xl max-w-4xl mx-auto text-left">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div>
+                    <label class="block text-xs uppercase text-gray-400 mb-2 font-medium">From (IATA / City)</label>
+                    <input type="text" id="dep" placeholder="e.g. BOM (Mumbai)" class="w-full bg-[#0B0F19] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-400 mb-2 font-medium">To (IATA / City)</label>
+                    <input type="text" id="arr" placeholder="e.g. DXB (Dubai)" class="w-full bg-[#0B0F19] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-400 mb-2 font-medium">Departure Date</label>
+                    <input type="date" id="date" class="w-full bg-[#0B0F19] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-400 mb-2 font-medium">Currency</label>
+                    <select id="currency" class="w-full bg-[#0B0F19] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37]">
+                        <option value="INR">INR (₹ India)</option>
+                        <option value="USD">USD ($ Global)</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="searchFlight()" class="w-full bg-[#D4AF37] hover:bg-[#e6c667] text-black font-bold uppercase tracking-wider py-4 rounded-xl transition shadow-lg shadow-[#D4AF37]/20">
+                Search International & Domestic Jets
+            </button>
+        </div>
+    </section>
+
+    <!-- Popular Routes (India & Abroad) -->
+    <section class="py-16 max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">Popular Global & Domestic Routes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-[#0B0F19] border border-white/10 p-6 rounded-2xl">
+                <span class="text-xs text-[#D4AF37] uppercase font-bold">Domestic India</span>
+                <h3 class="text-xl font-bold text-white mt-1 mb-2">Mumbai (BOM) ✈ Goa (GOI)</h3>
+                <p class="text-gray-400 text-sm mb-4">Light Jet (Citation CJ3) • 1 Hour</p>
+                <span class="text-[#D4AF37] font-bold text-lg">₹3,50,000 / Approx</span>
+            </div>
+            <div class="bg-[#0B0F19] border border-white/10 p-6 rounded-2xl">
+                <span class="text-xs text-[#D4AF37] uppercase font-bold">International Route</span>
+                <h3 class="text-xl font-bold text-white mt-1 mb-2">Delhi (DEL) ✈ Dubai (DXB)</h3>
+                <p class="text-gray-400 text-sm mb-4">Midsize Jet (Challenger) • 3.5 Hours</p>
+                <span class="text-[#D4AF37] font-bold text-lg">$18,500 / Approx</span>
+            </div>
+            <div class="bg-[#0B0F19] border border-white/10 p-6 rounded-2xl">
+                <span class="text-xs text-[#D4AF37] uppercase font-bold">Transatlantic</span>
+                <h3 class="text-xl font-bold text-white mt-1 mb-2">New York (JFK) ✈ London (LHR)</h3>
+                <p class="text-gray-400 text-sm mb-4">Heavy Jet (Gulfstream G650) • 7 Hours</p>
+                <span class="text-[#D4AF37] font-bold text-lg">$75,000 / Approx</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <script>
+        function searchFlight() {
+            const dep = document.getElementById('dep').value;
+            const arr = document.getElementById('arr').value;
+            const currency = document.getElementById('currency').value;
+            
+            if(!dep || !arr) {
+                alert('Please enter both departure and arrival locations (e.g., BOM to DXB).');
+                return;
+            }
+            alert(`Searching live availability from ${dep} to ${arr} in currency: ${currency}...`);
+        }
+    </script>
+</body>
+</html>
